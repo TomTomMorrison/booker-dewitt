@@ -1,10 +1,13 @@
-version: "3"
+version: "3.4"
 services:
   server:
-    image: booker-dewitt
-    container_name: booker-dewitt_app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
     ports:
-      - 8086:8086
+      - "8081:8081"
     depends_on:
       - db
   db:
@@ -18,15 +21,15 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - db:/var/lib/postgresql/data
-#  flyway:
-#    image: flyway/flyway:8.5.9-alpine
-#    container_name: booker-dewitt_flyway
-#    command: -url=jdbc:postgresql://db/bookerdewitt -schemas=public -user=admin
-#      -password=password -connectRetries=5 migrate
-#    volumes:
-#      - ./migrations:/flyway/sql
-#    depends_on:
-#      - db
+  flyway:
+    image: flyway/flyway:8.5.9-alpine
+    container_name: booker-dewitt_flyway
+    command: -url=jdbc:postgresql://db/bookerdewitt -schemas=public -user=admin
+      -password=password -connectRetries=5 migrate
+    volumes:
+      - ./migrations:/flyway/sql
+    depends_on:
+      - db
 volumes:
   db:
     name: booker-dewitt_postgres

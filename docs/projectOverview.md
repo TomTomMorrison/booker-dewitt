@@ -15,14 +15,11 @@ Guest users can see registered nurseries in their area and their availability bu
   - Address
   - Email
   - Contact Number
-  - DOB
   - Children
 
 #### To add children a user must include:
   - Name
   - DOB (Must be older than 1 and younger than 4)
-  - Allergies
-  - Additional information
 
 #### To register on the application a nursery must include:
   - Name
@@ -39,6 +36,16 @@ Guest users can see registered nurseries in their area and their availability bu
 The user must then:
   - Complete payment
 
-Users can add notifications for when certain nurseries have availaility for selected dates.
+Users can add notifications for when certain nurseries have availability for selected dates.
 
-[![](https://mermaid.ink/img/pako:eNq1U8tuwyAQ_BXEOfkB39IkbVEru0rcQyVfNrB2UDBYGFeKnPx78SsladNbOS2zw-4wCy3lRiCNKNqVhMJCmWlyWW-LzTpOyek0n5uWPCTJC4ufSEQqBRzr-8zlM3tded4e_iDFScoe2XKRsiT23BrdFTl-32zXm4-fzYFzrDruWK7tTkntiBRd9AmW78ESDSWGexDCYl2HEJYgVQhwox1wFzflDm2XEOCQCLPL9DnTmZ40_WfLrqzFQtbOgpNGT5lewGBsO_j0LWCIK7CoHRuRW1HhZcI8KIW2kNM4A-2yaw-K6dyM7ach3Ny_i3Rja7RHdgH4XioxbPvGO2MOUhcrH0-Yk6UXZE1l8jyV5TVeSX5oqgEezA_fyx0LrlT85srgQa_hHL42QuiMlmj9eIT_DX35jLo9-vY08qHAHBrlMuoPempTdUXW3iNjaZSDqnFGoXFme9ScRs42OJHGfzWyzl-gAiMa)](https://mermaid.live/edit#pako:eNq1U8tuwyAQ_BXEOfkB39IkbVEru0rcQyVfNrB2UDBYGFeKnPx78SsladNbOS2zw-4wCy3lRiCNKNqVhMJCmWlyWW-LzTpOyek0n5uWPCTJC4ufSEQqBRzr-8zlM3tded4e_iDFScoe2XKRsiT23BrdFTl-32zXm4-fzYFzrDruWK7tTkntiBRd9AmW78ESDSWGexDCYl2HEJYgVQhwox1wFzflDm2XEOCQCLPL9DnTmZ40_WfLrqzFQtbOgpNGT5lewGBsO_j0LWCIK7CoHRuRW1HhZcI8KIW2kNM4A-2yaw-K6dyM7ach3Ny_i3Rja7RHdgH4XioxbPvGO2MOUhcrH0-Yk6UXZE1l8jyV5TVeSX5oqgEezA_fyx0LrlT85srgQa_hHL42QuiMlmj9eIT_DX35jLo9-vY08qHAHBrlMuoPempTdUXW3iNjaZSDqnFGoXFme9ScRs42OJHGfzWyzl-gAiMa)
+![ERD][booker-dewitt-erd.png]
+
+[![](https://mermaid.ink/img/pako:eNrFVN1OgzAUfpWm1-4FuGOCumzZFIaJCQk5o0chAp1tmVm2vbsHNiLjR72TK9rz_fX0pAceS4Hc4qicFN4U5GGxDDzf9V7Y8TiZyAOzHcdzfZ9ZLAHdq16WkWOv3ch-tmcLe7pwCQxCEPo-sD1nZi9HxLrl24fZwhkrNlY16GzouU-B66-Jsc0gxh9IvXwaM4wNMVqcQ1gwlgqqqRQy9jiv1gXkyHag4gRUtcYc0qy9sQWtP6US7b1YFgZiExVlvkHVrlBfFGodkU1aGHZHHqcqRNPX_8zQ3E4vA2uxrixSs7-KIbWpBup7r9Y9X-uwavdoQm467ID6ErUkShJoR6cYSZqJsY4OzctwFAHmKkpPltKWijj7Ua_OmP3uw_6sOl2t5u5oFy8KlXQEO5oO2GQ4nP18rBqp8KNEbTrGrPXxG56jonET9EjU3iE3CeYYcot-Baj3kBOLcOW20nRFaqTi1itkGm84lEb6-yLmllElNqDLW3NBnb4Atg2GPQ)](https://mermaid.live/edit#pako:eNrFVN1OgzAUfpWm1-4FuGOCumzZFIaJCQk5o0chAp1tmVm2vbsHNiLjR72TK9rz_fX0pAceS4Hc4qicFN4U5GGxDDzf9V7Y8TiZyAOzHcdzfZ9ZLAHdq16WkWOv3ch-tmcLe7pwCQxCEPo-sD1nZi9HxLrl24fZwhkrNlY16GzouU-B66-Jsc0gxh9IvXwaM4wNMVqcQ1gwlgqqqRQy9jiv1gXkyHag4gRUtcYc0qy9sQWtP6US7b1YFgZiExVlvkHVrlBfFGodkU1aGHZHHqcqRNPX_8zQ3E4vA2uxrixSs7-KIbWpBup7r9Y9X-uwavdoQm467ID6ErUkShJoR6cYSZqJsY4OzctwFAHmKkpPltKWijj7Ua_OmP3uw_6sOl2t5u5oFy8KlXQEO5oO2GQ4nP18rBqp8KNEbTrGrPXxG56jonET9EjU3iE3CeYYcot-Baj3kBOLcOW20nRFaqTi1itkGm84lEb6-yLmllElNqDLW3NBnb4Atg2GPQ)
+
+API Endpoints:
+GET PUT POST DELETE Nursery
+GET PUT POST DELETE Guardian
+GET PUT POST DELETE Child
+GET POST DELETE NurseryChildDateRequest
+GET POST NurseryDateAvailable
+POST NurseryDateBooked 
