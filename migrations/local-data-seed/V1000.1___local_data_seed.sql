@@ -1,3 +1,8 @@
+insert into address(address, city, postcode) values ('1 New Street', 'Newark', 'SW2 9YH');
+insert into address(address, city, postcode) values ('2 Roman Lane', 'Sicily', 'IT2 7GP');
+insert into address(address, city, postcode) values ('3 Hells Kitchen', 'New York', 'HG2 4FL');
+insert into address(address, city, postcode) values ('4 Spanish Harlem', 'San Juan', 'TR4 9UI');
+
 insert into nursery(name, email, password, contact_number, address_id)
     values('Nursery 1', 'nursery1@mail.com', 'Password123', '02880576923', 1);
 insert into nursery(name, email, password, contact_number, address_id)
@@ -26,18 +31,16 @@ insert into guardian_child(guardian_id, child_id) values(2, 2);
 insert into guardian_child(guardian_id, child_id) values(3, 3);
 insert into guardian_child(guardian_id, child_id) values(4, 4);
 
-insert into nursery_child_date_request(date, child_id, nursery_id) values('20/08/2022', 1, 1);
-insert into nursery_child_date_request(date, child_id, nursery_id) values('01/08/2022', 2, 1);
-insert into nursery_child_date_request(date, child_id, nursery_id) values('11/08/2022', 3, 2);
-insert into nursery_child_date_request(date, child_id, nursery_id) values('31/08/2022', 4, 2);
-insert into nursery_child_date_request(date, child_id, nursery_id) values('20/08/2022', 1, 3);
-insert into nursery_child_date_request(date, child_id, nursery_id) values('01/08/2022', 2, 3);
-insert into nursery_child_date_request(date, child_id, nursery_id) values('11/08/2022', 3, 4);
-insert into nursery_child_date_request(date, child_id, nursery_id) values('31/08/2022', 4, 4);
+insert into nursery_date_available(date, nursery_id, status_id) values('04/09/2022', 4, 1);
 
-insert into nursery_date_available(date, nursery_id) values('31/08/2022', 4);
-
-insert into nursery_date_booked(nursery_date_available_id, nursery_child_date_request_id) values(1, 8);
+insert into nursery_child_date_available_request(date, child_id, nursery_date_available_id, status_id) values('20/08/2022', 1, 1, 3);
+insert into nursery_child_date_available_request(date, child_id, nursery_date_available_id, status_id) values('01/08/2022', 2, 1, 3);
+insert into nursery_child_date_available_request(date, child_id, nursery_date_available_id, status_id) values('11/08/2022', 3, 1, 3);
+insert into nursery_child_date_available_request(date, child_id, nursery_date_available_id, status_id) values('31/08/2022', 4, 1, 3);
+insert into nursery_child_date_available_request(date, child_id, nursery_date_available_id, status_id) values('20/08/2022', 1, 1, 3);
+insert into nursery_child_date_available_request(date, child_id, nursery_date_available_id, status_id) values('01/08/2022', 2, 1, 3);
+insert into nursery_child_date_available_request(date, child_id, nursery_date_available_id, status_id) values('11/08/2022', 3, 1, 3);
+insert into nursery_child_date_available_request(date, child_id, nursery_date_available_id, status_id) values('31/08/2022', 4, 1, 3);
 
 
 

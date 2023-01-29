@@ -47,15 +47,11 @@ create table if not exists guardian_child
         constraint child_id_fk references child
 );
 
-create table if not exists nursery_child_date_request
+create table if not exists status
 (
     id serial not null
-        constraint nursery_child_date_request_pk primary key,
-    date varchar(20) not null,
-    child_id integer not null
-        constraint child_id_fk references child,
-    nursery_id integer not null
-        constraint nursery_id_fk references nursery
+            constraint status_pk primary key,
+    status varchar(20) not null
 );
 
 create table if not exists nursery_date_available
@@ -64,17 +60,22 @@ create table if not exists nursery_date_available
         constraint nursery_date_available_pk primary key,
     date varchar(20) not null,
     nursery_id integer not null
-        constraint nursery_id_fk references nursery
+        constraint nursery_id_fk references nursery,
+    status_id integer not null
+        constraint status_id_fk references status
 );
 
-create table if not exists nursery_date_booked
+create table if not exists nursery_child_date_available_request
 (
     id serial not null
-        constraint nursery_date_booked_pk primary key,
+        constraint nursery_child_date_available_request_pk primary key,
+    date varchar(20) not null,
+    child_id integer not null
+        constraint child_id_fk references child,
     nursery_date_available_id integer not null
-        constraint nursery_date_available_id_fk references nursery_date_available,
-    nursery_child_date_request_id integer not null
-        constraint nursery_child_date_request_id_fk references nursery_child_date_request
+        constraint nursery_id_fk references nursery_date_available,
+    status_id integer not null
+        constraint status_id_fk references status
 );
 
 
