@@ -47,6 +47,8 @@ create table if not exists child
 
 create table if not exists guardian_child
 (
+    id serial not null
+        constraint guardian_child_pk primary key,
     app_user_guardian_id integer not null
         constraint app_user_guardian_id_fk references app_user_guardian,
     child_id integer not null
