@@ -42,7 +42,7 @@ create table if not exists child
     id serial not null
         constraint child_pk primary key,
     name varchar(255) not null,
-    dob timestamp not null default current_timestamp
+    dob date not null
 );
 
 create table if not exists guardian_child

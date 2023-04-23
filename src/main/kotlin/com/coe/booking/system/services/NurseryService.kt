@@ -36,8 +36,8 @@ class NurseryService(
     }
 
     fun deleteDatesAvailable(nurseryDatesAvailable: List<NurseryDateAvailable>) {
-        for (nurseryDateAvailable: NurseryDateAvailable) {
-            nurseryDateAvailableRepository.deleteById(nurseryDateAvailable.nurseryId)
-        }
+//        for (nurseryDateAvailable: NurseryDateAvailable) {
+//            nurseryDateAvailableRepository.deleteById(nurseryDateAvailable.nurseryId)
+//        }
     }
 }

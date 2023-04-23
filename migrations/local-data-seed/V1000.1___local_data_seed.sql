@@ -36,10 +36,10 @@ insert into app_user_guardian(app_user_id) values (6);
 insert into app_user_guardian(app_user_id) values (7);
 insert into app_user_guardian(app_user_id) values (8);
 
-insert into child(name, dob) values('Anthony Soprano', TIMESTAMP '12/02/2021');
-insert into child(name, dob) values('Michael Corleone', TIMESTAMP '30/06/2020');
-insert into child(name, dob) values('Harry Hill', TIMESTAMP '01/10/2020');
-insert into child(name, dob) values('Carl Brigante', TIMESTAMP '19/08/2019');
+insert into child(name, dob) values('Anthony Soprano', '12/02/2021');
+insert into child(name, dob) values('Michael Corleone', '30/06/2020');
+insert into child(name, dob) values('Harry Hill', '01/10/2020');
+insert into child(name, dob) values('Carl Brigante', '19/08/2019');
 
 insert into guardian_child(app_user_guardian_id, child_id) values(1, 1);
 insert into guardian_child(app_user_guardian_id, child_id) values(2, 2);

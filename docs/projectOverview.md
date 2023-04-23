@@ -72,7 +72,7 @@ Response 200
 
 ---
 
-`GET /nurseries/{nursery_id}`
+`GET /nurseries/{id}`
 Return a nursery
 
 Response 200
@@ -93,53 +93,64 @@ Return a list of all available dates for all nurseries
 
 Response 200
 ```json
-[
-  {
-    "id": 1,
-    "date": "04/09/2023",
-    "nursery_id": 4,
-    "status_id": 1
-  },
-  {
-    "id": 2,
-    "date": "05/09/2023",
-    "nursery_id": 3,
-    "status_id": 1
-  }
-]
+{
+    "nurseries": {
+      "1": [
+          {
+            "id": 1,
+            "available_date_time": "04/09/2023 09:30:00"
+          },
+          {
+            "id": 2,
+            "available_date_time": "06/09/2023 11:30:00"
+          }
+        ],
+      "2": [
+          {
+            "id": 3,
+            "available_date_time": "05/09/2023 10:00:00"
+          },
+          {
+            "id": 4,
+            "available_date_time": "08/09/2023 11:30:00"
+          }
+        ]
+    }
+}
 
 ```
 
 ---
 
-`GET /nurseries/{nursery_id}/available-dates`
+`GET /nurseries/{id}/available-dates`
 Return a list of all available dates by nursery id
 
 Response 200
 ```json
 [
-  {
-    "id": 1,
-    "date": "04/09/2023",
-    "nursery_id": 4,
-    "status_id": 1
-  }
+    {
+      "id": 1,
+      "available_date_time": "04/09/2023 09:30:00"
+    },
+    {
+      "id": 2,
+      "available_date_time": "06/09/2023 10:30:00"
+    }
 ]
 
 ```
 
 ---
 
-`GET /nurseries/available-dates/{nursery_date_available_id}`
+`GET /nurseries/available-dates/{id}`
 Return an available date by nursery date available id
 
 Response 200
 ```json
 {
   "id": 1,
-  "date": "04/09/2023",
-  "nursery_id": 4,
-  "status_id": 1
+  "available_date_time": "04/09/2023 09:30:00",
+  "app_user_nursery_id": 4
 }
 
 
@@ -147,53 +158,77 @@ Response 200
 
 ---
 
-`GET /nurseries/{nursery_id}/booking-requests`
+`GET /nurseries/{id}/booking-requests`
 Return all booking requests by nursery id
 
 Response 200
 ```json
-[
-  {
-    "id": 1,
-    "date": "04/09/2023",
-    "nursery_id": 4,
-    "status_id": 1
-  },
-  {
-    "id": 2,
-    "date": "05/09/2023",
-    "nursery_id": 4,
-    "status_id": 1
-  }
-]
+{
+    "available-dates": [
+      {
+        "available_dates_id": 1,
+        "available_date_time": "04/09/2023 09:30:00",
+        "booking-request": {
+            "id": 1,
+            "child_id": 3,
+            "request_date_time": "01/09/2023 18:11:23",
+            "status_id": 1
+          }
+      },
+      {
+        "available_dates_id": 1,
+        "available_date_time": "04/09/2023 09:30:00",
+        "booking-request": {
+          "id": 1,
+          "child_id": 2,
+          "request_date_time": "01/09/2023 19:03:02",
+          "status_id": 2
+        }
+      }
+    ]
+}
 
 
 ```
 
 ---
 
-`GET /nurseries/{nursery_id}/booking-requests/{status_id}`
-Return all booking requests by nursery id & status id
+`GET /nurseries/{id}/booking-requests?status_id={status_id}`
+Return all booking requests by nursery id, filter by status_id
 
 Response 200
 ```json
-[
-  {
-    "id": 1,
-    "date": "04/09/2023",
-    "nursery_id": 4,
-    "status_id": 1
-  },
-  {
-    "id": 2,
-    "date": "05/09/2023",
-    "nursery_id": 4,
-    "status_id": 1
-  }
-]
+{
+  "available-dates": [
+    {
+      "available_dates_id": 1,
+      "available_date_time": "04/09/2023 09:30:00",
+      "booking-request": {
+        "id": 1,
+        "child_id": 3,
+        "request_date_time": "01/09/2023 18:11:23",
+        "status_id": 1
+      }
+    }
+  ]
+}
 
 
 ```
+
+---
+
+`POST /nurseries/booking-requests`
+Create a booking request
+
+Request
+```json
+{
+  "child_id": 2,
+  "available_dates_id": 1
+}
+```
+Response - `201 Created`
 
 ---
 
@@ -222,14 +257,15 @@ Create an available date
 Request
 ```json
 {
-  "date": "04/09/2023"
+  "app_user_nursery_id": 1,
+  "available_date_time": "04/09/2023 09:30:00"
 }
 ```
 Response - `201 Created`
 
 ---
 
-`PATCH /nursery/{nursery_id}`
+`PATCH /nursery/{id}`
 Update a nursery by id
 
 Request
@@ -242,13 +278,14 @@ Response - `200 OK`
 
 ---
 
-`PATCH /nurseries/available-dates/{nursery_date_available_id}`
+`PATCH /nurseries/available-dates/{id}`
 Update an available date by id
 
 Request
 ```json
 {
-  "date": "05/09/2023",
+  "available_date_time": "05/09/2023 12:45:00",
+  "child_id": 3,
   "status_id": 2
 }
 ```
@@ -256,7 +293,7 @@ Response - `200 OK`
 
 ---
 
-`PATCH /nurseries/booking-requests/{nursery_child_date_available_request_id}`
+`PATCH /nurseries/booking-requests/{id}`
 Update a booking request by id
 
 Request
@@ -269,7 +306,7 @@ Response - `200 OK`
 
 ---
 
-`DELETE /nursery/{nursery_id}`
+`DELETE /nursery/{id}`
 Delete a nursery by id
 
 Response - `204 No Content`
@@ -302,7 +339,7 @@ Response 200
 
 ---
 
-`GET /guardians/{guardian_id}`
+`GET /guardians/{id}`
 Return a guardian
 
 Response 200
@@ -337,22 +374,7 @@ Response - `201 Created`
 
 ---
 
-`POST /guardians/booking-requests`
-Create a booking request
-
-Request
-```json
-{
-  "date": "01/09/2023",
-  "child_id": 2,
-  "nursery_date_available_id": 1
-}
-```
-Response - `201 Created`
-
----
-
-`PATCH /guardian/{guardian_id}`
+`PATCH /guardian/{id}`
 Update a guardian by id
 
 Request
@@ -365,20 +387,7 @@ Response - `200 OK`
 
 ---
 
-`PATCH /guardian/booking-requests/{nursery_child_date_available_request_id}`
-Update a booking request by id
-
-Request
-```json
-{
-  "status_id": 5
-}
-```
-Response - `200 OK`
-
----
-
-`DELETE /guardian/{guardian_id}`
+`DELETE /guardian/{id}`
 Delete a guardian by id
 
 Response - `204 No Content`
@@ -407,7 +416,7 @@ Response 200
 
 ---
 
-`GET /children/{guardian_id}`
+`GET /children/{id}/guardian`
 Return a list of all children by guardian id
 
 Response 200
@@ -428,7 +437,7 @@ Response 200
 
 ---
 
-`GET /children/{child_id}`
+`GET /children/{id}`
 Return a child by id
 
 Response 200
@@ -456,7 +465,7 @@ Response - `201 Created`
 
 ---
 
-`PATCH /children/{child_id}`
+`PATCH /children/{id}`
 Update a child by id
 
 Request
@@ -469,7 +478,7 @@ Response - `200 OK`
 
 ---
 
-`DELETE /children/{child}`
+`DELETE /children/{id}`
 Delete a child by id
 
 Response - `204 No Content`
