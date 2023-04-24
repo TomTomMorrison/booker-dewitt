@@ -7,16 +7,16 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "app_user_guardian")
-class Guardian(
+open class Guardian(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    var id: Int,
+    open var id: Int? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "app_user_id")
     @JsonIgnore
-    var user: User,
+    open var user: User? = null,
 )

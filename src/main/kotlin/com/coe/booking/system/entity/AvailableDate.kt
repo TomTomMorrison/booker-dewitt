@@ -8,25 +8,25 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "available_dates")
-class AvailableDate(
+open class AvailableDate(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    var id: Int,
+    open var id: Int? = null,
 
     @Column(name = "available_date_time")
-    var availableDateTime: Timestamp,
+    open var availableDateTime: Timestamp? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "app_user_nursery_id")
     @JsonIgnore
-    var nursery: Nursery,
+    open var nursery: Nursery? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "status_id")
     @JsonIgnore
-    var status: Status,
+    open var status: Status? = null,
 )

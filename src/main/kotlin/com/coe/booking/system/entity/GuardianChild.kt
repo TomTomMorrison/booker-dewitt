@@ -7,22 +7,22 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "guardian_child")
-class GuardianChild(
+open class GuardianChild(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    var id: Int,
+    open var id: Int? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "app_user_guardian_id")
     @JsonIgnore
-    var guardian: Guardian,
+    open var guardian: Guardian? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "child_id")
     @JsonIgnore
-    var child: Child,
+    open var child: Child? = null,
 )

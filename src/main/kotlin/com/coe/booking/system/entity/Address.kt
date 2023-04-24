@@ -4,19 +4,19 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "address")
-class Address (
+open class Address (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    var id: Int,
+    open var id: Int? = null,
 
     @Column(name = "address", nullable = false)
-    var address: String,
+    open var address: String? = null,
 
     @Column(name = "city", nullable = false)
-    var city: String,
+    open var city: String? = null,
 
     @Column(name = "postcode", nullable = false)
-    var postcode: String,
+    open var postcode: String? = null,
 )

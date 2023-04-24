@@ -4,13 +4,13 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "status")
-class Status(
+open class Status(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    var id: Int,
+    open var id: Int? = null,
 
     @Column(name = "status", nullable = false)
-    var status: String,
+    open var status: String? = null,
 )

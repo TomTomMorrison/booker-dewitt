@@ -5,16 +5,16 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "child")
-class Child (
+open class Child (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    var id: Int,
+    open var id: Int? = null,
 
     @Column(name = "name", nullable = false)
-    var name: String,
+    open var name: String? = null,
 
     @Column(name = "dob", nullable = false)
-    var dob: Date,
+    open var dob: Date? = null,
 )

@@ -2,10 +2,10 @@ package com.coe.booking.system.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-class CreateBookingRequestDto(
+data class CreateBookingRequestDto(
     @JsonProperty(value = "childId")
-    childId: Int,
+    var childId: Int,
     @JsonProperty(value = "availableDateId")
-    availableDateId: Int
+    var availableDateId: Int
 ) {
 }

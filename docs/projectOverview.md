@@ -279,13 +279,12 @@ Response - `200 OK`
 ---
 
 `PATCH /nurseries/available-dates/{id}`
-Update an available date by id
+Update an booking by id
 
 Request
 ```json
 {
   "available_date_time": "05/09/2023 12:45:00",
-  "child_id": 3,
   "status_id": 2
 }
 ```
@@ -299,6 +298,8 @@ Update a booking request by id
 Request
 ```json
 {
+  "available_date_time": "05/09/2023 12:45:00",
+  "child_id": 3,
   "status_id": 4
 }
 ```

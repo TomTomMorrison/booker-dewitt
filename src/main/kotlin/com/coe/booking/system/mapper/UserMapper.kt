@@ -1,5 +1,6 @@
 package com.coe.booking.system.mapper
 
+import com.coe.booking.system.dto.CreateUserDto
 import com.coe.booking.system.dto.NurseryDto
 import com.coe.booking.system.dto.UserDto
 import com.coe.booking.system.entity.Nursery
@@ -14,4 +15,7 @@ interface UserMapper {
     fun userEntityToUserDto(user: User): UserDto
     fun userDtoToUserEntity(userDto: UserDto): User
     fun userDtoToUserViewModel(userDto: UserDto): UserViewModel
+
+    fun createUserDtoToUserEntity(createUserDto: CreateUserDto): User
+    fun createUserDtoToUserViewModel(createUserDto: CreateUserDto): UserViewModel
 }

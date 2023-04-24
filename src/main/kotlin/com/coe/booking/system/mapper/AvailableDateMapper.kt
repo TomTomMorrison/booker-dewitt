@@ -1,6 +1,7 @@
 package com.coe.booking.system.mapper
 
 import com.coe.booking.system.dto.AvailableDateDto
+import com.coe.booking.system.dto.CreateAvailableDateDto
 import com.coe.booking.system.dto.NurseryDto
 import com.coe.booking.system.dto.UserDto
 import com.coe.booking.system.entity.AvailableDate
@@ -17,4 +18,6 @@ interface AvailableDateMapper {
     fun availableDateEntityToAvailableDateDto(availableDate: AvailableDate): AvailableDateDto
     fun availableDateDtoToAvailableDateEntity(availableDateDto: AvailableDateDto): AvailableDate
     fun availableDateDtoToAvailableDateViewModel(availableDateDto: AvailableDateDto): AvailableDateViewModel
+    fun createAvailableDateDtoToAvailableDateEntity(createAvailableDateDto: CreateAvailableDateDto): AvailableDate
+    fun createAvailableDateDtoToAvailableDateViewModel(createAvailableDateDto: CreateAvailableDateDto): AvailableDateViewModel
 }

@@ -7,31 +7,28 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "app_user")
-class User (
+open class User (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    var id: Int,
+    open var id: Int? = null,
 
     @Column(name = "name", nullable = false)
-    var name: String,
+    open var name: String? = null,
 
     @Column(name = "email", nullable = false)
-    var email: String,
+    open var email: String? = null,
 
     @Column(name = "password", nullable = false)
-    var password: String,
+    open var password: String? = null,
 
     @Column(name = "contact_number", nullable = false)
-    var contactNumber: String,
-
-//    @Column(name = "address_id", nullable = false)
-//    var addressId: String,
+    open var contactNumber: String? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "address_id")
     @JsonIgnore
-    var address: Address,
+    open var address: Address? = null,
 )
